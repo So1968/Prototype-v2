@@ -1,0 +1,20 @@
+{
+  "name": "prototype-v2",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend"
+  ],
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:frontend dev:backend",
+    "dev:frontend": "npm run dev --workspace @prototype/frontend",
+    "dev:backend": "npm run dev --workspace @prototype/backend",
+    "build": "npm-run-all build:frontend build:backend",
+    "build:frontend": "npm run build --workspace @prototype/frontend",
+    "build:backend": "npm run build --workspace @prototype/backend"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
