@@ -40,6 +40,39 @@ Ce dépôt est actuellement minimal (aucun code applicatif, seulement les fichie
 - Stack cible (à choisir selon le besoin réel, sans surdimensionnement).
 - Contraintes de déploiement et d’exploitation.
 
+
+### Étape 2 — Validation de la stack cible (2026-04-10)
+
+#### Ce qui a été décidé
+- Confirmer une stack sobre et standard pour accélérer le démarrage: **React + Vite + React Router** côté frontend, **Node.js + Express** côté backend, **PostgreSQL + Prisma** pour la donnée.
+- Encadrer l’authentification avec deux options maintenables: **session sécurisée** ou **JWT + refresh token**, avec hash des mots de passe via **bcrypt**.
+- Fixer un principe de simplicité: éviter toute surcouche prématurée, privilégier lisibilité et maintenabilité.
+
+#### Ce qui a été créé
+- Aucun nouveau fichier.
+
+#### Ce qui a été modifié
+- `README.md` enrichi avec une section explicite “Stack recommandée (validée)” et les principes de déploiement.
+
+#### Ce qui a été laissé inchangé
+- La structure monorepo et les choix d’infrastructure déjà posés (reverse proxy Apache/Nginx, séparation frontend/backend/infra).
+
+#### Ce qui reste à faire
+- Implémenter les squelettes applicatifs `apps/frontend` et `apps/backend` cohérents avec cette stack.
+- Trancher le mode d’authentification final (session ou JWT) selon les contraintes d’exploitation.
+- Ajouter les premiers endpoints backend et écrans frontend du MVP.
+
+#### Points de vigilance
+- Ne pas introduire de complexité technique tant que le besoin métier n’est pas démontré.
+- Vérifier tôt les exigences sécurité (cookies sécurisés, rotation refresh token, politique de mot de passe).
+
+#### Dettes techniques éventuelles
+- Décision d’authentification encore ouverte: nécessite un arbitrage explicite avant implémentation complète.
+
+#### Hypothèses encore ouvertes
+- Topologie de production exacte (PostgreSQL dédié vs co-hébergé).
+- Besoin réel de Tailwind (non prioritaire à ce stade).
+
 ## Règles de mise à jour de ce document
 - Mettre à jour ce fichier à chaque étape importante.
 - Décrire explicitement : décisions, créations, modifications, inchangés, reste à faire, vigilance, dettes, hypothèses.

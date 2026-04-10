@@ -7,6 +7,37 @@ Architecture monorepo simple, propre et extensible pour une application web inte
 - **Base de données**: PostgreSQL
 - **ORM**: Prisma
 
+## Stack recommandée (validée)
+
+### Frontend
+- React
+- Vite
+- React Router
+- CSS simple (Tailwind pourra être ajouté plus tard si le besoin apparaît)
+
+### Backend
+- Node.js
+- Express
+
+### Base de données
+- PostgreSQL
+
+### ORM
+- Prisma
+
+### Authentification
+- Session sécurisée **ou** JWT + refresh token (selon contraintes d’intégration)
+- Mot de passe hashé avec `bcrypt`
+
+### Déploiement
+- Frontend buildé et servi en statique
+- Backend exposé derrière Apache ou Nginx en reverse proxy
+- PostgreSQL hébergé sur serveur dédié ou sur la même machine selon le contexte
+
+### Principe
+- Ne pas surcharger la stack
+- Rester standard, maintenable, lisible
+
 ## Objectifs d'architecture
 
 - Séparer clairement les responsabilités (`apps/frontend`, `apps/backend`, `infra/`).
